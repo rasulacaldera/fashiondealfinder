@@ -40,8 +40,7 @@ public class EmailPublisher implements Publish {
     private String buildEmailContent(List<Deal> deals) {
         StringBuilder content = new StringBuilder();
         content.append("<html><body style=\"font-family: Arial, sans-serif;\">");
-        content.append("<h1 style=\"color: #2c3e50;\">Hello,</h1>");
-        content.append("<p style=\"color: #34495e;\">Here are the latest deals from Patagonia:</p>");
+        content.append("<p style=\"color: #34495e;\">Hi,<br><br>Here are the latest deals from Patagonia:</p>");
         content.append("<table style=\"width: 100%; border-collapse: collapse;\">");
 
         int columnsPerRow = 4;
