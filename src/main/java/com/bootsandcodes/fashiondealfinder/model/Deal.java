@@ -6,6 +6,7 @@ public class Deal {
     private String price;
     private String originalPrice;
     private String imageUrl;
+    private String discount;
 
     public String getTitle() {
         return title;
@@ -45,5 +46,13 @@ public class Deal {
 
     public void setImageUrl(String imageUrl) {
         this.imageUrl = imageUrl;
+    }
+
+    public String getDiscount() {
+        return discount;
+    }
+
+    public void setDiscount(String discount) {
+        this.discount = discount;
     }
 }

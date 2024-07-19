@@ -35,8 +35,9 @@ public class EmailPublisher implements Publish {
 
         for (Deal deal : deals) {
             content.append("Title: ").append(deal.getTitle()).append("\n");
-            content.append("Price: ").append(deal.getPrice()).append("\n");
-            content.append("Original Price: ").append(deal.getOriginalPrice()).append("\n");
+            content.append("Price: €").append(deal.getPrice()).append("\n");
+            content.append("Original Price: €").append(deal.getOriginalPrice()).append("\n");
+            content.append("Discount Rate: ").append(deal.getDiscount()).append("%\n");
             content.append("URL: ").append(deal.getUrl()).append("\n");
             content.append("Image: ").append(deal.getImageUrl()).append("\n\n");
         }
