@@ -39,26 +39,46 @@ public class EmailPublisher implements Publish {
 
     private String buildEmailContent(List<Deal> deals) {
         StringBuilder content = new StringBuilder();
-        content.append("<html><body>");
-        content.append("<h1>Hello,</h1>");
-        content.append("<p>Here are the latest deals from Patagonia:</p>");
-        content.append("<ul>");
+        content.append("<html><body style=\"font-family: Arial, sans-serif;\">");
+        content.append("<h1 style=\"color: #2c3e50;\">Hello,</h1>");
+        content.append("<p style=\"color: #34495e;\">Here are the latest deals from Patagonia:</p>");
+        content.append("<table style=\"width: 100%; border-collapse: collapse;\">");
+
+        // Adjust the number of columns per row as needed
+        int columnsPerRow = 4;
+        int colCounter = 0;
 
         for (Deal deal : deals) {
-            content.append("<li>");
-            content.append("<h2>").append(deal.getTitle()).append("</h2>");
+            if (colCounter % columnsPerRow == 0) {
+                if (colCounter > 0) {
+                    content.append("</tr>");
+                }
+                content.append("<tr>");
+            }
+
+            content.append("<td style=\"padding: 10px; vertical-align: top;\">");
+            content.append("<div style=\"box-shadow: 0 4px 8px rgba(0,0,0,0.1); padding: 10px; border-radius: 5px;\">");
+            content.append("<h2 style=\"color: #16a085;\">").append(deal.getTitle()).append("</h2>");
             content.append("<p><strong>Price:</strong> €").append(deal.getPrice()).append("</p>");
             content.append("<p><strong>Original Price:</strong> €").append(deal.getOriginalPrice()).append("</p>");
             content.append("<p><strong>Discount Rate:</strong> ").append(deal.getDiscount()).append("%</p>");
-            content.append("<p><a href=\"").append(deal.getUrl()).append("\">View Deal</a></p>");
-            content.append("<p><img src=\"").append(deal.getImageUrl()).append("\" alt=\"").append(deal.getTitle()).append("\" style=\"width:100px;height:auto;\"></p>");
-            content.append("</li>");
+            content.append("<p><a href=\"").append(deal.getUrl()).append("\" style=\"color: #2980b9; text-decoration: none;\">View Deal</a></p>");
+            content.append("<p><img src=\"").append(deal.getImageUrl()).append("\" alt=\"").append(deal.getTitle()).append("\" style=\"width:200px; height:auto; border-radius: 5px;\"></p>");
+            content.append("</div>");
+            content.append("</td>");
+
+            colCounter++;
         }
 
-        content.append("</ul>");
-        content.append("<p>Best Regards,<br>Your Fashion Deal Finder</p>");
+        if (colCounter > 0 && colCounter % columnsPerRow != 0) {
+            content.append("</tr>");
+        }
+
+        content.append("</table>");
+        content.append("<p style=\"color: #34495e;\">Best Regards,<br>Your Fashion Deal Finder</p>");
         content.append("</body></html>");
 
         return content.toString();
     }
+
 }
