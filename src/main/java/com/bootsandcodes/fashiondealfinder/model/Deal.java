@@ -2,6 +2,7 @@ package com.bootsandcodes.fashiondealfinder.model;
 
 public class Deal {
     private String title;
+    private String brand;
     private String url;
     private String price;
     private String originalPrice;
@@ -54,5 +55,13 @@ public class Deal {
 
     public void setDiscount(String discount) {
         this.discount = discount;
+    }
+
+    public String getBrand() {
+        return brand;
+    }
+
+    public void setBrand(String brand) {
+        this.brand = brand;
     }
 }

@@ -25,6 +25,7 @@ public class PatagoniaDealFinder implements DealFinder {
 
             for (Element product : products) {
                 Deal deal = new Deal();
+                deal.setBrand("Patagonia");
                 deal.setTitle(product.select(".product-tile__name").text());
                 deal.setUrl("https://eu.patagonia.com" + product.select(".pdp-link").select("a.link").attr("href"));
                 deal.setPrice(product.select("div.price").select("span.text-sales-price").select("span.value").attr("content"));
