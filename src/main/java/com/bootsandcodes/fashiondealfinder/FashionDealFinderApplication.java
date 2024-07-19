@@ -6,10 +6,10 @@ import org.springframework.scheduling.annotation.EnableScheduling;
 
 @EnableScheduling
 @SpringBootApplication
-public class FashiondealfinderApplication {
+public class FashionDealFinderApplication {
 
 	public static void main(String[] args) {
-		SpringApplication.run(FashiondealfinderApplication.class, args);
+		SpringApplication.run(FashionDealFinderApplication.class, args);
 	}
 
 }
