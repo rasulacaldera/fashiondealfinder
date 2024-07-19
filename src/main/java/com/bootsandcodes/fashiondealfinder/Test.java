@@ -1,21 +1,21 @@
 package com.bootsandcodes.fashiondealfinder;
 
-import com.bootsandcodes.fashiondealfinder.publisher.TwitterPublisher;
+import com.bootsandcodes.fashiondealfinder.publisher.RedditPublisher;
 import org.springframework.scheduling.annotation.Scheduled;
 import org.springframework.stereotype.Component;
 
 @Component
 public class Test {
 
-    private TwitterPublisher twitterPublisher;
+    private RedditPublisher redditPublisher;
 
-    public Test(TwitterPublisher twitterPublisher) {
-        this.twitterPublisher = twitterPublisher;
+    public Test(RedditPublisher redditPublisher) {
+        this.redditPublisher = redditPublisher;
     }
 
     @Scheduled(initialDelay = 0, fixedRate = 60000)
     void test() {
         System.out.println("Triggering");
-        twitterPublisher.publish();
+        redditPublisher.publish();
     }
 }
