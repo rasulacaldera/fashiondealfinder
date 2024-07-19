@@ -44,7 +44,6 @@ public class EmailPublisher implements Publish {
         content.append("<p style=\"color: #34495e;\">Here are the latest deals from Patagonia:</p>");
         content.append("<table style=\"width: 100%; border-collapse: collapse;\">");
 
-        // Adjust the number of columns per row as needed
         int columnsPerRow = 4;
         int colCounter = 0;
 
@@ -57,14 +56,15 @@ public class EmailPublisher implements Publish {
             }
 
             content.append("<td style=\"padding: 10px; vertical-align: top;\">");
+            content.append("<a href=\"").append(deal.getUrl()).append("\" style=\"text-decoration: none; color: inherit;\">");
             content.append("<div style=\"box-shadow: 0 4px 8px rgba(0,0,0,0.1); padding: 10px; border-radius: 5px;\">");
             content.append("<h2 style=\"color: #16a085;\">").append(deal.getTitle()).append("</h2>");
             content.append("<p><strong>Price:</strong> €").append(deal.getPrice()).append("</p>");
             content.append("<p><strong>Original Price:</strong> €").append(deal.getOriginalPrice()).append("</p>");
             content.append("<p><strong>Discount Rate:</strong> ").append(deal.getDiscount()).append("%</p>");
-            content.append("<p><a href=\"").append(deal.getUrl()).append("\" style=\"color: #2980b9; text-decoration: none;\">View Deal</a></p>");
             content.append("<p><img src=\"").append(deal.getImageUrl()).append("\" alt=\"").append(deal.getTitle()).append("\" style=\"width:200px; height:auto; border-radius: 5px;\"></p>");
             content.append("</div>");
+            content.append("</a>");
             content.append("</td>");
 
             colCounter++;
