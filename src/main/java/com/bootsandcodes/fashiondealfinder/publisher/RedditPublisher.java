@@ -6,6 +6,6 @@ import org.springframework.stereotype.Service;
 public class RedditPublisher implements Publish {
     @Override
     public void publish() {
-        System.out.println("Starting Twitter Publish");
+        System.out.println("Starting Reddit Publish");
     }
 }
