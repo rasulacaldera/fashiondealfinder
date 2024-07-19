@@ -1,21 +1,21 @@
 package com.bootsandcodes.fashiondealfinder;
 
-import com.bootsandcodes.fashiondealfinder.publisher.EmailRedditPublisher;
+import com.bootsandcodes.fashiondealfinder.publisher.EmailPublisher;
 import org.springframework.scheduling.annotation.Scheduled;
 import org.springframework.stereotype.Component;
 
 @Component
 public class Test {
 
-    private EmailRedditPublisher emailRedditPublisher;
+    private EmailPublisher emailPublisher;
 
-    public Test(EmailRedditPublisher emailRedditPublisher) {
-        this.emailRedditPublisher = emailRedditPublisher;
+    public Test(EmailPublisher emailPublisher) {
+        this.emailPublisher = emailPublisher;
     }
 
     @Scheduled(initialDelay = 0, fixedRate = 60000)
     void test() {
         System.out.println("Triggering");
-        emailRedditPublisher.publish();
+        emailPublisher.publish();
     }
 }
